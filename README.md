@@ -21,4 +21,5 @@ An automation solution using python on the Benthic Surveying problem. Inspired f
 
 - [x] Create python virtal environment
 - [x] Add `requirements.txt` file for project dependencies
+- [ ] Calculate num of squares
 - [ ] Create dashboard(?)
