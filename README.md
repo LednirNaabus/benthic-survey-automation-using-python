@@ -8,8 +8,16 @@ An automation solution using python on the Benthic Surveying problem. Inspired f
 - The researchers manually places the quadrats in an Excel sheet.
 - The problem is to find a more efficient and faster way of doing this.
 
+### Solution
+
+- To create a python program that automates this process.
+  - User will be able to:
+    - Upload an image file and let the program detect corals in an inference space.
+    - Write the data into a `.csv` file.
+
 ---
 
 #### To do:
 
-- [ ] Test
+- [ ] Create python virtal environment
+- [ ] Add `requirements.txt` file for project dependencies
