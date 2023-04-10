@@ -19,5 +19,6 @@ An automation solution using python on the Benthic Surveying problem. Inspired f
 
 #### To do:
 
-- [ ] Create python virtal environment
-- [ ] Add `requirements.txt` file for project dependencies
+- [x] Create python virtal environment
+- [x] Add `requirements.txt` file for project dependencies
+- [ ] Create dashboard(?)
