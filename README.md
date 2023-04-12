@@ -2,10 +2,18 @@
 
 An automation solution using python on Benthic Surveying. Inspired from my brother's school assignment.
 
-### Instructions:
+### Problem Overview:
 
-- Setup a python virtual environment using `python -m venv /path/to/virtual/environment/`
-- Install requirements and dependencies using `pip install -r requirements.txt`
+- The task involves determining the accuracy and precision of Small and Large Quadrats in Small and Large Inference Spaces while using completely Random and Systematic Random Sampling in a Clumped Distribution of corals.
+- The researchers manually places the quadrats in an Excel sheet.
+- The problem is to find a more efficient and faster way of doing this.
+
+### Solution
+
+- To create a python program that automates this process.
+  - User will be able to:
+    - Upload an image file and let the program detect corals in an inference space.
+    - Write the data into a `.csv` file.
 
 ---
 
@@ -17,4 +25,3 @@ An automation solution using python on Benthic Surveying. Inspired from my broth
 - [ ] Detect circles in an image
 - [ ] Calculate num of squares
 - [ ] Create dashboard(?)
-  - [ ] Install Flask (maybe)
