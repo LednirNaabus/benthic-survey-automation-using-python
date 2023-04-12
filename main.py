@@ -16,9 +16,16 @@ def draw_grid(image, r, c, color=(0,0,0), thickness=1):
     return image
 
 if __name__ == "__main__":
+    """
+    - detect circles in an image
+    - calculate % of coverage
+    - 
+    """
+
     im = cv2.imread('circle1.png')
     drawned = draw_grid(im, r=5, c=5)
 
+    
     cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
     cv2.imshow("IMAGE OUTPUT", drawned)
     cv2.waitKey(0)
