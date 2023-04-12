@@ -1,6 +1,6 @@
 # Automate Benthic Surveying using Python
 
-An automation solution using python on the Benthic Surveying problem. Inspired from my brother's school assignment.
+An automation solution using python on Benthic Surveying. Inspired from my brother's school assignment.
 
 ### Problem Overview:
 
