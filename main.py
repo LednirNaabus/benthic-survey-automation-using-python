@@ -1,21 +1,25 @@
-import numpy as np
 import cv2
-# from matplotlib import pyplot as plt
-import pandas as pd
+import numpy as np
 
-img = cv2.imread('test.png')
+def draw_grid(image, r, c, color=(0,0,0), thickness=1):
+    h, w, _ = image.shape
+    dy, dx = h // r, w // c
 
-grid_size = 5
+    for x in np.linspace(start=dx, stop=w-dx, num=c-1):
+        x = int(round(x))
+        cv2.line(image, (x,0), (x, h), color=color, thickness=thickness)
 
-width = 128
-height = 130
-resized = cv2.resize(img, (width, height))
+    for y in np.linspace(start=dy, stop=h-dy, num=r-1):
+        y = int(round(y))
+        cv2.line(image, (0, y), (w, y), color=color, thickness=thickness)
 
-# draw the grid
-for i in range(grid_size, resized.shape[0], grid_size):
-    cv2.line(resized, (0, i), (resized.shape[1], i), (0, 0, 255), 2)
-for i in range(grid_size, resized.shape[i], grid_size):
-    cv2.line(resized, (i, 0), (i, resized.shape[0]), (0, 0, 255), 2)
+    return image
 
-plt.imshow(resized)
-plt.show()
+if __name__ == "__main__":
+    im = cv2.imread('circle1.png')
+    drawned = draw_grid(im, r=5, c=5)
+
+    cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
+    cv2.imshow("IMAGE OUTPUT", drawned)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
