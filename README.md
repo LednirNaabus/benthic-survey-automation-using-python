@@ -15,7 +15,8 @@ An automation solution using python on Benthic Surveying. Inspired from my broth
 - [x] Add `requirements.txt` file for project dependencies
 - [x] Draw `n x n` grid
 - [x] Detect circles in an image
-- [x] Calculate coverage of circle in the grid
+- [x] Detect Grid
+- [ ] Calculate coverage of circle in the grid
 - [ ] Insert data into `.csv`
 - [ ] Create dashboard(?)
   - [ ] Install Flask(maybe)
