@@ -34,13 +34,6 @@ class Grid:
         
         return image
 
-    # def detect_grid(image):
-    #     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    #     gray = cv2.GaussianBlur(gray, (5,5), 0)
-    #     # adaptive thresholding
-    #     thresh = cv2.adaptiveThreshold(gray, 255, 1, 1, 11, 2)
-    #     return thresh
-
 def detect_grid(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray, 50, 150, apertureSize=3)
@@ -63,14 +56,6 @@ def detect_grid(image):
     return image
 
 def detect_circle(image):
-    # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # blur = cv2.GaussianBlur(gray, (5, 5), 0)
-    # detected = cv2.HoughCircles(blur, cv2.HOUGH_GRADIENT, dp=1, minDist=20, param1=50, param2=30, minRadius=0, maxRadius=0)
-    # if detected is not None:
-    #     detected = np.round(detected[0, :]).astype("int")
-    #     for (x, y, r) in detected:
-    #         cv2.circle(image, (x, y), r, (0, 255, 0), 2)
-    # return image
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.medianBlur(gray, 5)
     circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, 20,
