@@ -34,11 +34,9 @@ class Grid:
         
         return image
 
-def preprocess(image):
-    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-def detect_circle(image, g):
-    blur = cv2.GaussianBlur(g, (5, 5), 0)
+def detect_circle(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray, (5, 5), 0)
     detected = cv2.HoughCircles(blur, cv2.HOUGH_GRADIENT, dp=1, minDist=20, param1=50, param2=30, minRadius=0, maxRadius=0)
     if detected is not None:
         detected = np.round(detected[0, :]).astype("int")
@@ -46,18 +44,8 @@ def detect_circle(image, g):
             cv2.circle(image, (x, y), r, (0, 255, 0), 2)
     return image
 
-def calculate_percentage(circles, cell_height, cell_width):
-    if circles is not None:
-        for circle in circles[0]:
-            x, y, r = circle
-            for i in range(MAX_ROWS):
-                for j in range(MAX_COLS):
-                    cell_x = j * cell_width + cell_width // 2
-                    cell_y = i * cell_height + cell_height // 2
-                    dist = np.sqrt((x - cell_x) ** 2 + (y - cell_y) ** 2)
-                    if dist < r:
-                        coverage = dist/r
-    return coverage
+def calculate_percentage():
+    pass
 
 if __name__ == "__main__":
     """
@@ -66,13 +54,11 @@ if __name__ == "__main__":
     - 
     """
     im = cv2.imread('circle1.png')
-    circles = detect_circle(im, preprocess(im))
+    circles = detect_circle(im)
 
     grid = Grid(5,5)
     h, w = grid.define_grid(im)
     drawned = grid.draw_grid(circles)
-    coverage = calculate_percentage(circles, h, w)
-    print(f'{coverage: .2%}')
     
     cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
     cv2.imshow("IMAGE OUTPUT", drawned)
