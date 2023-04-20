@@ -31,6 +31,10 @@ class Grid:
         return image
     
     def detect_grid(image):
+        """
+        Note:
+        detect_grid_ returns tuple
+        """
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         edges = cv2.Canny(gray, 50, 150, apertureSize=3)
         color = (255,255,0)
