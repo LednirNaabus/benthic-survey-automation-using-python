@@ -1,4 +1,5 @@
 from lib.common import *
+from constants.colors import COLOR_GREEN
 
 class Grid:
     def __init__(self, rows=None, cols=None):
@@ -48,4 +49,19 @@ class Grid:
             x1, y1, x2, y2 = points[0]
             cv2.line(image, (x1, y1), (x2,y2), color, thickness)
             lines_list.append([(x1,y1), (x2, y2)])
+        return image
+    
+    def number_cellsY(self, image):
+        tmp_x = 0
+        tmp_y = 0
+        k = 0
+        while tmp_x < image.shape[1]:
+            while tmp_y < image.shape[0]:
+                tmp_y += 25
+                k += 1
+                cv2.putText(image, str(k),
+                           (tmp_x,tmp_y), 1,
+                           1, COLOR_GREEN,
+                           1, cv2.LINE_AA)
+            tmp_x += 25
         return image
