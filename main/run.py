@@ -9,7 +9,7 @@ def main():
     grid = g.Grid(5,5)
     h, w = grid.define_grid(image_file)
     drawned = grid.draw_grid(circles)
-    detect_grid_ = detect_grid(image_file)
+    detect_grid_ = grid.detect_grid(image_file)
 
     cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
     cv2.imshow("IMAGE OUTPUT", detect_grid_)
