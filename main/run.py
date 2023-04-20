@@ -4,13 +4,12 @@ from helpers import *
 def main():
     # general_helpers.read_file('circle1.png')
     image_file = general_helpers.read_file('circle1.png')
-    circles = detect_circle(image_file)
+    circles_detected = detect_circle(image_file)
 
     grid = g.Grid(5,5)
-    h, w = grid.define_grid(image_file)
-    drawned = grid.draw_grid(circles)
-    # detect_grid_ = grid.detect_grid(image_file[0])
-    numbered = grid.number_cellsY(circles)
+    grid.define_grid(image_file)
+    grid.draw_grid(circles_detected)
+    numbered = grid.number_cellsY(circles_detected)
 
     cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
     cv2.imshow("IMAGE OUTPUT", numbered)
