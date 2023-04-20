@@ -9,9 +9,10 @@ def main():
     grid = g.Grid(5,5)
     h, w = grid.define_grid(image_file)
     drawned = grid.draw_grid(circles)
-    detect_grid_ = grid.detect_grid(image_file)
+    # detect_grid_ = grid.detect_grid(image_file[0])
+    numbered = grid.number_cellsY(circles)
 
     cv2.namedWindow("IMAGE OUTPUT", cv2.WINDOW_NORMAL)
-    cv2.imshow("IMAGE OUTPUT", detect_grid_)
+    cv2.imshow("IMAGE OUTPUT", numbered)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
