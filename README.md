@@ -20,3 +20,4 @@ An automation solution using python on Benthic Surveying. Inspired from my broth
 - [ ] Insert data into `.csv`
 - [ ] Create dashboard(?)
   - [ ] Install Flask(maybe)
+- [ ] Fix Module import error
