@@ -11,5 +11,5 @@ def detect_circle(image):
         cv2.circle(image, (x, y), 2, (255,0,0), 3)
     return image
 
-def calculate_percentage():
-    pass 
+def estimate_percentage():
+    print("idk")
