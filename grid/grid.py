@@ -1,11 +1,11 @@
 from lib.common import *
-from constants.colors import COLOR_GREEN
+from constants.colors import *
 
 class Grid:
     def __init__(self, rows=None, cols=None):
         self.rows = rows
         self.cols = cols
-        self.color = (0,0,0)
+        self.color = COLOR_BLACK
         self.thickness = 1
 
     def define_grid(self, image):
@@ -15,10 +15,12 @@ class Grid:
         return cell_height, cell_width
     
     def draw_grid(self, image):
-        # from OpenCV
-        # height = img.shape[0]
-        # width = img.shape[1]
-        # channels = img.shape[2]
+        """
+        from OpenCV
+        height = img.shape[0]
+        width = img.shape[1]
+        channels = img.shape[2]
+        """
         cell_h, cell_w = self.define_grid(image)
         for x in np.linspace(start=cell_w, stop=image.shape[1]-cell_h, num=self.cols-1):
             x = int(round(x))
@@ -30,14 +32,13 @@ class Grid:
         
         return image
     
-    def detect_grid(image):
+    def detect_grid(image, return_lines=False):
         """
         Note:
         detect_grid_ returns tuple
         """
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         edges = cv2.Canny(gray, 50, 150, apertureSize=3)
-        color = (255,255,0)
         thickness = 2
         lines_list = []
         lines = cv2.HoughLinesP(
@@ -51,9 +52,9 @@ class Grid:
 
         for points in lines:
             x1, y1, x2, y2 = points[0]
-            cv2.line(image, (x1, y1), (x2,y2), color, thickness)
+            cv2.line(image, (x1, y1), (x2,y2), COLOR_CYAN, thickness)
             lines_list.append([(x1,y1), (x2, y2)])
-        return image
+        return (image, lines_list) if return_lines else image
     
     def number_cellsY(self, image):
         tmp_x = 0
