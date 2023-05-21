@@ -16,8 +16,9 @@ An automation solution using python on Benthic Surveying. Inspired from my broth
 - [x] Draw `n x n` grid
 - [x] Detect circles in an image
 - [x] Detect Grid
-- [ ] Calculate coverage of circle in the grid
+- [x] Calculate coverage of circle in the grid
+  - **Note:** Still need to fix calculation. Percentage returned is incorrect.
 - [ ] Insert data into `.csv`
 - [ ] Create dashboard(?)
   - [ ] Install Flask(maybe)
-- [ ] Fix Module import error
+- [x] Fix Module import error

@@ -3,10 +3,22 @@ from constants.colors import *
 
 class Grid:
     def __init__(self, rows=None, cols=None):
-        self.rows = rows
-        self.cols = cols
+        self._rows = rows
+        self._cols = cols
         self.color = COLOR_BLACK
         self.thickness = 1
+
+    @property
+    def rows(self):
+        return self._rows
+    
+    @property
+    def cols(self):
+        return self._cols
+    
+    @property
+    def num_cells(self):
+        return self._rows * self._cols
 
     def define_grid(self, image):
         height, width, _ = image.shape
@@ -35,7 +47,7 @@ class Grid:
     def detect_grid(image, return_lines=False):
         """
         Note:
-        detect_grid_ returns tuple
+        detect_grid returns tuple
         """
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         edges = cv2.Canny(gray, 50, 150, apertureSize=3)
